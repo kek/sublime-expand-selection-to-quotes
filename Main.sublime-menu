@@ -1,0 +1,13 @@
+[
+	{
+	    "id": "selection",
+	    "children":
+	    [
+	        {
+	        	"id": "expand_selection_to_quotes",
+	        	"caption": "Expand Selection to Quotes",
+	        	"command": "expand_selection_to_quotes"
+	    	}
+	    ]
+	}
+]

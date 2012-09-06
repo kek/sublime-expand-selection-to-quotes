@@ -1,0 +1,5 @@
+[
+	{
+		"keys": ["super+shift+q"], "command": "expand_selection_to_quotes"
+	}
+]
