@@ -37,6 +37,8 @@ class ExpandSelectionToQuotesCommand(sublime_plugin.TextCommand):
 			s_size, s_before, s_after = search_for_quotes("'", s_quotes)
 
 			def replace_region(start, end):
+				if sel.size() < end-start-2:
+					start += 1; end -= 1
 				self.view.sel().subtract(sel)
 				self.view.sel().add(sublime.Region(start, end))
 
