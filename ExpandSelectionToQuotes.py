@@ -15,20 +15,17 @@ import sublime, sublime_plugin
 
 class ExpandSelectionToQuotesCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		[*d_quotes] = map(lambda x: x.begin(), self.view.find_all('"'))
-		[*s_quotes] = map(lambda x: x.begin(), self.view.find_all("'"))
+		d_quotes = list(map(lambda x: x.begin(), self.view.find_all('"')))
+		s_quotes = list(map(lambda x: x.begin(), self.view.find_all("'")))
 
 		for sel in self.view.sel():
 			def search_for_quotes(q_type, quotes):
 				q_size, before, after = False, False, False
 
 				if len(quotes) - self.view.substr(sel).count('"') >= 2:
-					all_before = filter(lambda x: x < sel.begin(), quotes)
-					all_after = filter(lambda x: x >= sel.end(), quotes)
+					all_before = list(filter(lambda x: x < sel.begin(), quotes))
+					all_after = list(filter(lambda x: x >= sel.end(), quotes))
 					
-					all_before = list(all_before)
-					all_after = list(all_after)
-
 					if all_before: before = all_before[-1]
 					if all_after: after = all_after[0]
 
