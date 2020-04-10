@@ -1,3 +1,3 @@
-Expands selections to the closest containing pairs of single or double quotes.
+Expands selections to the closest containing pairs of single or double quotes or backticks.
 
 The default keybinding is Ctrl+'.
