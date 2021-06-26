@@ -1,18 +1,5 @@
 import sublime, sublime_plugin
 
-# Test cases:
-#
-# With cursor at X, the command should select the string:
-# "Here is the X cursor"
-#
-# With cursor at X, the command should select the single quoted string:
-# "Here is 'the X cursor' now"
-#
-# With cursor at X, the command should select the double quoted string:
-# "Here the cursor is 'outside' the X selection"
-#
-# view.run_command("expand_selection_to_quotes")
-
 class ExpandSelectionToQuotesCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		double_quotes = list(map(lambda x: x.begin(), self.view.find_all('"')))
