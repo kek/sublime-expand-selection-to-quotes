@@ -1,5 +1,11 @@
 [
-	{
-		"keys": ["ctrl+'"], "command": "expand_selection_to_quotes"
-	}
+    {
+        "keys": ["ctrl+alt+t"], // Replace with your preferred key combination to toggle mode
+        "command": "toggle_selection_mode"
+    },
+    {
+        "keys": ["ctrl+alt+e"], // Replace with your preferred key combination to expand selection
+        "command": "expand_selection_to_specified_string"
+        // No args needed here as the command behavior is determined by the global `selection_mode`
+    }
 ]

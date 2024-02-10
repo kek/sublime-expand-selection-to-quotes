@@ -1,13 +1,14 @@
 [
-	{
-	    "id": "selection",
-	    "children":
-	    [
-	        {
-	        	"id": "expand_selection_to_quotes",
-	        	"caption": "Expand Selection to Quotes",
-	        	"command": "expand_selection_to_quotes"
-	    	}
-	    ]
-	}
+    {
+        "id": "selection",
+        "children":
+        [
+            {
+                "id": "Expand Selection to Quotes+",
+                "caption": "Expand String Selection to Arg",
+                "command": "expand_selection_to_quotes_or_without_quotes"
+                // Ensure the command name matches the implementation in your Python script.
+            }
+        ]
+    }
 ]

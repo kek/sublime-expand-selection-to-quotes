@@ -1,5 +1,7 @@
 Expands selections to the closest containing pairs of single or double quotes or backticks.
 
+
+Original Read_ME
 The default keybinding is Ctrl+'.
 
 With cursor at X, the command should select the string:
@@ -10,3 +12,6 @@ With cursor at X, the command should select the single quoted string:
 
 With cursor at X, the command should select the double quoted string:
 "Here the cursor is 'outside' the X selection"
+
+Forked Ammendments
+Now the code logic is such that you can use the selection keybinding to select either Delimited String or a Bare String

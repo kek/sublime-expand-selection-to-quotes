@@ -1,5 +1,10 @@
 [
-	{
-		"keys": ["ctrl+'"], "command": "expand_selection_to_quotes"
-	}
+    {
+        "keys": ["ctrl+shift+t"], // Toggle selection mode
+        "command": "toggle_selection_mode"
+    },
+    {
+        "keys": ["ctrl+shift+e"], // Expand selection based on current mode
+        "command": "expand_selection_to_specified_string"
+    }
 ]

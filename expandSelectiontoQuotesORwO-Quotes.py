@@ -20,7 +20,8 @@ class ExpandSelectionToSpecifiedStringCommand(sublime_plugin.TextCommand):
         all_quotes = view.find_all(r'(?:"|\'|`)')
         sel_regions = []
 
-        include_delimiters = True if selection_mode == 2 else False
+        # Determine if delimiters should be included based on the mode
+        include_delimiters = selection_mode == 2
 
         for sel in view.sel():
             closest_before = closest_after = None
@@ -31,8 +32,8 @@ class ExpandSelectionToSpecifiedStringCommand(sublime_plugin.TextCommand):
                     closest_after = q
 
             if closest_before and closest_after and view.substr(closest_before) == view.substr(closest_after):
-                start = closest_before.a + (0 if include_delimiters else 1)
-                end = closest_after.b - (0 if include_delimiters else 1)
+                start = closest_before.a + (1 if not include_delimiters else 0)
+                end = closest_after.b - (1 if not include_delimiters else 0)
                 sel_regions.append(sublime.Region(start, end))
 
         if sel_regions:
