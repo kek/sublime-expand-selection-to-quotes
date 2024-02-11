@@ -1,16 +1,31 @@
-# Global variable to hold the mode state
-selection_mode = 1
+import sublime
+import sublime_plugin
+import datetime
 
-import sublime, sublime_plugin
+# Print a message to the Sublime Text console when the plugin is loaded
+print(f"Plugin loaded at {datetime.datetime.now()}")
 
-# Command to toggle selection mode and show current mode
+# Initialization of global variable from settings
+def load_settings():
+    global selection_mode
+    settings = sublime.load_settings("selection-mode.sublime-settings")
+    selection_mode = settings.get("selection_mode", 1)
+    # Reacting to changes in settings
+    settings.add_on_change("selection_mode", load_settings)
+
+# Ensure settings are loaded on plugin load
+load_settings()
+
+# Command to toggle selection mode
 class ToggleSelectionModeCommand(sublime_plugin.ApplicationCommand):
     def run(self):
         global selection_mode
+        settings = sublime.load_settings("selection-mode.sublime-settings")
         selection_mode = 2 if selection_mode == 1 else 1
+        settings.set("selection_mode", selection_mode)
+        sublime.save_settings("selection-mode.sublime-settings")
         mode_message = "Mode 1: Select within quotes" if selection_mode == 1 else "Mode 2: Include quotes"
         sublime.status_message(mode_message)
-        # The message will automatically vanish after a short duration
 
 # Command to expand selection based on mode
 class ExpandSelectionToSpecifiedStringCommand(sublime_plugin.TextCommand):
@@ -20,7 +35,7 @@ class ExpandSelectionToSpecifiedStringCommand(sublime_plugin.TextCommand):
         all_quotes = view.find_all(r'(?:"|\'|`)')
         sel_regions = []
 
-        # Determine if delimiters should be included based on the mode
+        # This ensures the setting is always current
         include_delimiters = selection_mode == 2
 
         for sel in view.sel():
@@ -32,8 +47,8 @@ class ExpandSelectionToSpecifiedStringCommand(sublime_plugin.TextCommand):
                     closest_after = q
 
             if closest_before and closest_after and view.substr(closest_before) == view.substr(closest_after):
-                start = closest_before.a + (1 if not include_delimiters else 0)
-                end = closest_after.b - (1 if not include_delimiters else 0)
+                start = closest_before.a + (0 if include_delimiters else 1)
+                end = closest_after.b - (0 if include_delimiters else 1)
                 sel_regions.append(sublime.Region(start, end))
 
         if sel_regions:

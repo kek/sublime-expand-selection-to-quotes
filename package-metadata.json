@@ -1,0 +1,10 @@
+{
+    "schema_version": "3.0",
+    "name": "expandSelectiontoQuotesORwQuotes",
+    "description": "Expand text selection to include all text inside quotes or also include quotes depending on mode",
+    "version": "1.0.0",
+    "author": "Your Name",
+    "license": "MIT",
+    "homepage": "https://github.com/yourusername/your-repo",
+    "docs": "https://github.com/yourusername/your-repo/blob/main/README.md"
+}

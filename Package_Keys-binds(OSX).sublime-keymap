@@ -1,0 +1,10 @@
+[
+    {
+        "keys": ["ctrl+alt+t"],
+        "command": "toggle_selection_mode"
+    },
+    {
+        "keys": ["ctrl+alt+e"],
+        "command": "expand_selection_to_specified_string"
+    }
+]
