@@ -1,5 +1,0 @@
-[
-	{
-		"keys": ["ctrl+'"], "command": "expand_selection_to_quotes"
-	}
-]

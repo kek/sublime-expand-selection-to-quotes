@@ -1,0 +1,10 @@
+{
+    "schema_version": "3.0",
+    "name": "expandSelectiontoQuotesORwQuotes",
+    "description": "Expand text selection to include all text inside quotes or also include quotes depending on mode",
+    "version": "1.0.0",
+    "author": "pythoncarpenter",
+    "license": "MIT",
+    "homepage": "https://github.com/pythoncarpenter/sublime-expand-selection-to-quotes"
+    "docs": "https://github.com/pythoncarpenter/sublime-expand-selection-to-quotes/blob/c054ee80b2f426fd1be1a8ea6f86921a489a9026/README"
+}
